@@ -185,9 +185,10 @@ function kirimpesan($data) {
             $nama = htmlspecialchars($data['name']);
             $email = htmlspecialchars($data['email']);
             $pesan = htmlspecialchars($data['message']);
+            $waktu = htmlspecialchars($data['waktu']);
 
 
-        $query = "INSERT INTO chat_users VALUES ('', '$nama', '$email', '$pesan')";
+        $query = "INSERT INTO chat_users VALUES ('', '$nama', '$email', '$pesan', '$waktu')";
 
         mysqli_query($conn, $query);
 

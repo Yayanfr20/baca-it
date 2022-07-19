@@ -40,6 +40,8 @@ if (!isset($_SESSION["admin"])) {
   // ambil data dri dtabase chat_user
   $chat = mysqli_query($conn, "SELECT * FROM chat_users");
 
+  $dataChat = mysqli_fetch_assoc($chat);
+
 
 
 
@@ -267,7 +269,14 @@ if (!isset($_SESSION["admin"])) {
                   <div
                     class="dropdown-content-heading d-flex justify-content-between"
                   >
-                    <span class="">Notifications</span>
+                    <h4 class="">Notifications</h4>
+
+                    <!-- logic jika tidak ada pesan masuk -->
+                    <?php
+                    if ($dataChat == 0) {
+                      echo "<h6 class='mt-5' style='margin-right: 60px;'><i class='fa-solid fa-ban'></i> tidak ada pesan</h6>";
+                    }
+                    ?>
                   </div>
 
                   
@@ -291,8 +300,16 @@ if (!isset($_SESSION["admin"])) {
                     </ul>
                   </div>
                   <?php endforeach; ?>
-                  <a href="email-inbox"><div class="btn btn-danger btn-sm mt-4 m-2">Detail</div></a>
                   <!-- end foreach -->
+
+                  <!-- logic jika tidak ada pesan tombol detail off -->
+                  <?php
+                  if ($dataChat == 0) {
+                    echo'';
+                  } else {
+                    echo'<a href="email-inbox"><div class="btn btn-danger btn-sm mt-4 m-2">Detail</div></a>';
+                  }
+                  ?>
 
 
                 </div>
@@ -372,6 +389,11 @@ if (!isset($_SESSION["admin"])) {
             <li>
               <a href="daftar-ebook" aria-expanded="false">
               <i class="fa-solid fa-list"></i><span class="nav-text">Daftar Ebook</span>
+              </a>
+            </li>
+            <li>
+              <a href="email-inbox" aria-expanded="false">
+              <i class="fas fa-envelope"></i><span class="nav-text">Inbox</span>
               </a>
             </li>
             <li>
@@ -461,7 +483,7 @@ if (!isset($_SESSION["admin"])) {
                   <!-- cek jika tidak ada data ebook di upload -->
                   <?php
                   if($totalEbook == 0) {
-                    echo "<h1 class='text-center'>Ebook Belum Di Upload</h1>";
+                    echo "<h3 class='text-center'>Tidak ada ebook yang telah di upload</h3>";
                   }
 
                   ?>

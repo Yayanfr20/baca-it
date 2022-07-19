@@ -13,16 +13,28 @@ if (!isset($_SESSION["admin"])) {
     if( isset($_POST['upload']) ) {
           if( tambah($_POST) > 0) {
             echo "
-              <script>
-              alert('Berhasil upload');
-              document.location.href = 'app-upload';
-              </script>";
+            <script>
+            setTimeout(function () {
+              Swal.fire ({
+                title: 'Success!',
+                text: 'Ebook berhasil di upload',
+                icon: 'success',
+                timer: '3500'
+            });
+          },10);
+          </script>";
           }else {
             "
-              <script>
-              alert('Gagal upload');
-              document.location.href = 'app-upload';
-              </script>";
+            <script>
+            setTimeout(function () {
+              Swal.fire ({
+                title: 'Ooops!',
+                text: 'Ebook gagal di upload',
+                icon: 'error',
+                timer: '3500'
+            });
+          },10);
+          </script>";
           }
         }
 
@@ -139,6 +151,9 @@ if (!isset($_SESSION["admin"])) {
   </head>
 
   <body>
+    <!-- sweet alert -->
+    <script src="admin-pages/plugins/sweetalert/js/sweetalert2.all.min.js"></script>
+    <script src="admin-pages/plugins/sweetalert/js/jquery-3.6.0.min.js"></script>
     <!--*******************
         Preloader start
     ********************-->
@@ -445,13 +460,15 @@ if (!isset($_SESSION["admin"])) {
     <!--**********************************
         Scripts
     ***********************************-->
+
     <script src="plugins/common/common.min.js"></script>
     <script src="js/custom.min.js"></script>
     <script src="js/settings.js"></script>
     <script src="js/gleek.js"></script>
     <script src="js/styleSwitcher.js"></script>
+    
 
-    <!-- Chartjs -->
+    <!-- Chartjs
     <script src="./plugins/chart.js/Chart.bundle.min.js"></script>
     <!-- Circle progress -->
     <script src="./plugins/circle-progress/circle-progress.min.js"></script>
@@ -470,5 +487,7 @@ if (!isset($_SESSION["admin"])) {
     <script src="./plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js"></script>
 
     <script src="./js/dashboard/dashboard-1.js"></script>
+
+    
   </body>
 </html>
