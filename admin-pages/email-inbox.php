@@ -389,112 +389,62 @@ if (!isset($_SESSION["admin"])) {
       <!--**********************************
             Content body start
         ***********************************-->
-      <div class="content-body">
-        <div class="container-fluid mt-3">
-          <div class="row">
-            <div class="col-lg-3 col-sm-6">
-              <div class="card gradient-1">
-                <div class="card-body">
-                  <h3 class="card-title text-white">Jumlah Ebook</h3>
-                  <div class="d-inline-block">
-                    <h2 class="text-white"><?= $totalEbook; ?></h2>
-                  </div>
-                  <span class="float-right display-5 opacity-5"
-                    ><i class="fa fa-book"></i
-                  ></span>
-                  <br>
-                  <a href=""><div class="btn btn-primary btn-sm mt-4">Detail</div></a>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-              <div class="card gradient-2">
-                <div class="card-body">
-                  <h3 class="card-title text-white">Request Ebook</h3>
-                  <div class="d-inline-block">
-                    <h2 class="text-white">8541</h2>
-                  </div>
-                  <span class="float-right display-5 opacity-5"
-                    ><i class="fa-solid fa-code-pull-request"></i></span>
-                    <br>
-                  <a href=""><div class="btn btn-danger btn-sm mt-4">Detail</div></a>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-              <div class="card gradient-3">
-                <div class="card-body">
-                  <h3 class="card-title text-white">Jumlah Pengguna</h3>
-                  <div class="d-inline-block">
-                    <h2 class="text-white">4565</h2>
-                  </div>
-                  <span class="float-right display-5 opacity-5"
-                    ><i class="fas fa-users"></i
-                  ></span>
-                  <br>
-                  <a href=""><div class="btn btn-warning btn-sm mt-4">Detail</div></a>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-              <div class="card gradient-4">
-                <div class="card-body">
-                  <h3 class="card-title text-white">Admin</h3>
-                  <div class="d-inline-block">
-                    <h2 class="text-white"><?= $totalAdmin; ?></h2>
-                  </div>
-                  <span class="float-right display-5 opacity-5"
-                    ><i class="fas fa-user-gear"></i
-                  ></span>
-                  <br>
-                  <a href=""><div class="btn btn-info btn-sm mt-4">Detail</div></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="row">
-            <div class="col-xl-3 col-lg-6 col-sm-6 col-xxl-12">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Aktivitas Upload E-book</h4>
-                  <!-- cek jika tidak ada data ebook di upload -->
-                  <?php
-                  if($totalEbook == 0) {
-                    echo "<h1 class='text-center'>Ebook Belum Di Upload</h1>";
-                  }
+        <div class="content-body">
 
-                  ?>
-                  <!-- end -->
-                  <div id="activity">
-                    <?php foreach($infoupload as $info) : ?>
-                    <div class="media border-bottom-1 pt-3 pb-3">
-                      <img
-                        width="35"
-                        src="./images/avatar/1.jpg"
-                        class="mr-3 rounded-circle"
-                      />
-                      <div class="media-body">
-                        <h5><?= $data['username']; ?></h5>
-                        <p class="mb-0">
-                          <?= '<span class="text-danger">Judul : </span>'. $info['judul']. 
-                              '<br>'.
-                              '<span class="text-danger">Deskripsi : </span>'. $info['deskripsi']
-                               ?>
-                        </p>
-                      </div>
-                      <span class="text-muted"><?= $info['tglupload']; ?></span>
+<div class="row page-titles mx-0">
+    <div class="col p-md-0">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Apps</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0)">Email</a></li>
+        </ol>
+    </div>
+</div>
+<!-- row -->
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="email-left-box"><a href="#" class="btn btn-primary btn-block">Compose</a>
+                        <div class="mail-list mt-4"><a href="email-inbox" class="list-group-item border-0 text-primary p-r-0"><i class="fa fa-inbox font-18 align-middle mr-2"></i> <b>Inbox</b> <span class="badge badge-primary badge-sm float-right m-t-5">198</span> </a>
+                            <a href="#" class="list-group-item border-0 p-r-0"><i class="fa fa-paper-plane font-18 align-middle mr-2"></i>Sent</a>  <a href="#" class="list-group-item border-0 p-r-0"><i class="fa fa-star-o font-18 align-middle mr-2"></i>Important <span class="badge badge-danger badge-sm float-right m-t-5">47</span> </a>
+                            <a href="#" class="list-group-item border-0 p-r-0"><i class="mdi mdi-file-document-box font-18 align-middle mr-2"></i>Draft</a><a href="#" class="list-group-item border-0 p-r-0"><i class="fa fa-trash font-18 align-middle mr-2"></i>Trash</a>
+                        </div>
                     </div>
-                    <br>
-                    <?php endforeach; ?>
-                  </div>
+                    <div class="email-right-box">
+                        <div role="toolbar" class="toolbar">
+                            <div class="btn-group">
+                                <h5>Daftar Pesan Masuk</h5>
+                                <div class="dropdown-menu"><span class="dropdown-header">More Option :</span>  <a href="javascript: void(0);" class="dropdown-item">Mark as Unread</a>  <a href="javascript: void(0);" class="dropdown-item">Add to Tasks</a>  <a href="javascript: void(0);"
+                                    class="dropdown-item">Add Star</a>  <a href="javascript: void(0);" class="dropdown-item">Mute</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="email-list m-t-15">
+                         <div class="message">
+                          <div class="col-mail col-mail-1">
+                                <div class="email-checkbox">
+                                  </div><i class="mdi mdi-email-outline text-danger" style="font-size:21px;"></i>
+                                    </div>
+                                    <a href="email-read"><div class="col-mail col-mail-2">
+                                        <div class="subject">Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of</div>
+                                        <div class="date">11:49 am</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- panel -->
+                        <div class="row">
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-        <!-- #/ container -->
-      </div>
+    </div>
+</div>
+<!-- #/ container -->
+</div>
       <!--**********************************
             Content body end
         ***********************************-->
