@@ -625,7 +625,17 @@ http://www.templatemo.com/tm-492-app-starter
             <h2 class="modal-title">Kontak</h2>
           </div>
 
-          <form action="#" method="post">
+          <form action="" method="post">
+            <input
+              name="waktu"
+              type="hidden"
+              class="form-control"
+              id="name"
+              placeholder="Waktu"
+              value="<?php
+              date_default_timezone_set('Asia/Jakarta'); 
+              echo  date("h:i:s a"); ?>"
+            />
             <input
               name="name"
               type="text"
