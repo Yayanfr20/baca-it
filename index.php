@@ -221,12 +221,22 @@ http://www.templatemo.com/tm-492-app-starter
               <p class="wow fadeInUp" data-wow-delay="0.8s">
                 Web Belajar coding Gratis tanpa embel embel pembayaran
               </p>
-              <a
+              <ul style="list-style: none; display: flex;">
+                <li>
+                  <a
                 href="register"
-                class="wow fadeInUp section-btn btn btn-success smoothScroll"
+                class="wow fadeInUp section-btn btn smoothScroll"
+                data-wow-delay="1s" style="background-color: white; color:black; margin:5px;"
+                >DAFTAR</a>
+                </li>
+                <li>
+                  <a
+                href="login"
+                class="wow fadeInUp section-btn btn  smoothScroll" style="color: black; margin: 5px;"
                 data-wow-delay="1s"
-                >DAFTAR</a
-              >
+                >MASUK</a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -336,10 +346,10 @@ http://www.templatemo.com/tm-492-app-starter
               yang diajarkan ialah text bacaan dan pdf.
             </h2>
             <a
-              href="#screenshot"
+              href="register"
               class="wow fadeInUp section-btn btn btn-success smoothScroll"
               data-wow-delay="0.8s"
-              >Lebih lanjut</a
+              >Daftar sekarang</a
             >
           </div>
         </div>
