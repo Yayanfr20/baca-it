@@ -634,7 +634,8 @@ http://www.templatemo.com/tm-492-app-starter
               placeholder="Waktu"
               value="<?php
               date_default_timezone_set('Asia/Jakarta'); 
-              echo  date("h:i:s a"); ?>"
+              echo  date('H:i A'); 
+              ?>"
             />
             <input
               name="name"

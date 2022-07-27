@@ -38,8 +38,8 @@ if (!isset($_SESSION["admin"])) {
 
 
   // ambil data dri dtabase chat_user
-  $chat = mysqli_query($conn, "SELECT * FROM chat_users");
-  $totalPesan = count(query("SELECT * FROM chat_users"));
+  $chat = mysqli_query($conn, "SELECT * FROM chat_users ORDER BY id DESC");
+  $totalPesan = count(query("SELECT * FROM chat_users ORDER BY id DESC"));
 
 
 
@@ -410,7 +410,7 @@ if (!isset($_SESSION["admin"])) {
                     <div class="email-left-box"><a href="#" class="btn btn-primary btn-block">Compose</a>
                         <div class="mail-list mt-4"><a href="email-inbox" class="list-group-item border-0 text-primary p-r-0"><i class="fa fa-inbox font-18 align-middle mr-2"></i> <b>Inbox</b> <span class="badge badge-primary badge-sm float-right m-t-5"><?= $totalPesan; ?></span> </a>
                             <a href="#" class="list-group-item border-0 p-r-0"><i class="fa fa-paper-plane font-18 align-middle mr-2"></i>Sent</a>  <a href="#" class="list-group-item border-0 p-r-0"><i class="fa fa-star-o font-18 align-middle mr-2"></i>Important <span class="badge badge-danger badge-sm float-right m-t-5">47</span> </a>
-                            <a href="#" class="list-group-item border-0 p-r-0"><i class="mdi mdi-file-document-box font-18 align-middle mr-2"></i>Draft</a><a href="#" class="list-group-item border-0 p-r-0"><i class="fa fa-trash font-18 align-middle mr-2"></i>Trash</a>
+                            <a href="#" class="list-group-item border-0 p-r-0"><i class="mdi mdi-file-document-box font-18 align-middle mr-2"></i>Draft</a><a href="#" class="list-group-item border-0 p-r-0"><i class="fa fa-trash font-18 align-middle mr-2"></i>Delete</a>
                         </div>
                     </div>
                     <div class="email-right-box">
@@ -431,7 +431,7 @@ if (!isset($_SESSION["admin"])) {
                                 <i class="mdi mdi-email-outline text-danger" style="font-size:21px;"></i>
                                   </div>
                                     </div>
-                                    <a href="email-read"><div class="col-mail col-mail-2">
+                                    <a href="email-read.php?id= <?= $row['id']; ?>"><div class="col-mail col-mail-2">
                                         <div class="subject"><?= $row['email']; ?></div>
                                         <div class="date"><?= $row['waktu']; ?></div>
                                     </div>
