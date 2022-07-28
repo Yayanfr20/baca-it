@@ -431,7 +431,7 @@ if (!isset($_SESSION["admin"])) {
                                 <i class="mdi mdi-email-outline text-danger" style="font-size:21px;"></i>
                                   </div>
                                     </div>
-                                    <a href="email-read.php?id= <?= $row['id']; ?>"><div class="col-mail col-mail-2">
+                                    <a href="email-read?id= <?= $row['id']; ?>"><div class="col-mail col-mail-2">
                                         <div class="subject"><?= $row['email']; ?></div>
                                         <div class="date"><?= $row['waktu']; ?></div>
                                     </div>

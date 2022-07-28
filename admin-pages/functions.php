@@ -27,6 +27,15 @@ function hapus($id) {
 
 }
 
+
+// delete mail
+function delmail($id) {
+    global $conn;
+    mysqli_query($conn, "DELETE FROM ebook WHERE id = $id");
+    return mysqli_affected_rows($conn);
+
+}
+
 // upload ebook
 function tambah($data) {
     global $conn;
@@ -53,7 +62,6 @@ return mysqli_affected_rows($conn);
 
 
 // upload pdf
-
 function uploadpdf() {
 
 	$namaFile = $_FILES['pdf']['name'];
@@ -75,7 +83,7 @@ function uploadpdf() {
 	$ekstensiGambar = strtolower(end($ekstensiGambar));
 	if( !in_array($ekstensiGambar, $ekstensiGambarValid) ) {
 		echo "<script>
-				alert('yang anda upload bukan file!');
+				alert('yang anda upload bukan file pdf!');
 			  </script>";
 		return false;
 	}
@@ -98,6 +106,10 @@ function uploadpdf() {
 
 	return $namaFileBaru;
 }
+
+
+
+
 
 // upload cover
 function uploadcover() {
@@ -193,9 +205,10 @@ function kirimpesan($data) {
             $email = htmlspecialchars($data['email']);
             $pesan = htmlspecialchars($data['message']);
             $waktu = htmlspecialchars($data['waktu']);
+            $tgl = htmlspecialchars($data['tgl']);
 
 
-        $query = "INSERT INTO chat_users VALUES ('', '$nama', '$email', '$pesan', '$waktu')";
+        $query = "INSERT INTO chat_users VALUES ('', '$nama', '$email', '$pesan', '$waktu', '$tgl')";
 
         mysqli_query($conn, $query);
 

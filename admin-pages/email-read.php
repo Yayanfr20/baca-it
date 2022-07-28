@@ -337,7 +337,7 @@ $daftarChat = mysqli_fetch_assoc($listChat);
                     <div class="card">
                         <div class="card-body">
                             <div class="email-left-box"><a href="email-inbox" class="btn btn-primary btn-sm">Kembali</a>
-                                <div class="mail-list mt-4"><a href="email-inbox" class="list-group-item border-0 text-primary p-r-0"><i class="fa fa-inbox font-18 align-middle mr-2"></i> <b>Inbox</b> <span class="badge badge-primary badge-sm float-right m-t-5"><?= $jumlahChat; ?></span> </a><a href="#" class="list-group-item border-0 p-r-0"><i class="fa fa-trash font-18 align-middle mr-2 text-danger"></i>Delete</a>
+                                <div class="mail-list mt-4"><a href="email-inbox" class="list-group-item border-0 text-primary p-r-0"><i class="fa fa-inbox font-18 align-middle mr-2"></i> <b>Inbox</b> <span class="badge badge-primary badge-sm float-right m-t-5"><?= $jumlahChat; ?></span> </a><a href="delete-mail?id= <?= $chat ['id']; ?>" class="list-group-item border-0 p-r-0"><i class="fa fa-trash font-18 align-middle mr-2 text-danger" onclick="return confirm('yakin');"></i>Delete</a>
                                 </div>
                             </div>
                             <div class="email-right-box">
@@ -346,7 +346,7 @@ $daftarChat = mysqli_fetch_assoc($listChat);
                                     <i class="fas fa-circle-user mr-3" style="font-size:50px;"></i>
                                         <div class="media-body">
                                             <h5 class="m-b-3"><?= $chat['email']; ?></h5>
-                                            <p class="m-b-2">20 May 2018</p>
+                                            <p class="m-b-2"><?= $chat ['tgl']; ?></p>
                                         </div>
                                         
                                     </div>

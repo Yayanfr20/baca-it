@@ -425,7 +425,7 @@ if (!isset($_SESSION["admin"])) {
                     ><i class="fa fa-book"></i
                   ></span>
                   <br>
-                  <a href=""><div class="btn btn-primary btn-sm mt-4">Detail</div></a>
+                  <a href="daftar-ebook"><div class="btn btn-primary btn-sm mt-4">Detail</div></a>
                 </div>
               </div>
             </div>

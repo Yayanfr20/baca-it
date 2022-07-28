@@ -638,6 +638,14 @@ http://www.templatemo.com/tm-492-app-starter
               ?>"
             />
             <input
+              name="tgl"
+              type="hidden"
+              class="form-control"
+              id="name"
+              placeholder="Waktu"
+              value="<?= date('l, d-m-Y') ?>"
+            />
+            <input
               name="name"
               type="text"
               class="form-control"
