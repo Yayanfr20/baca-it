@@ -61,6 +61,10 @@ return mysqli_affected_rows($conn);
 }
 
 
+
+
+
+
 // upload pdf
 function uploadpdf() {
 
@@ -69,7 +73,7 @@ function uploadpdf() {
 	$error = $_FILES['pdf']['error'];
 	$tmpName = $_FILES['pdf']['tmp_name'];
 
-	// cek apakah tidak ada gambar yang diupload
+	// cek apakah tidak ada file pdf yang diupload
 	if( $error === 4 ) {
 		echo "<script>
 				alert('pilih file terlebih dahulu!');
@@ -77,10 +81,11 @@ function uploadpdf() {
 		return false;
 	}
 
-	// cek apakah yang diupload adalah gambar
-	$ekstensiGambarValid = ['zip', 'rar'];
+	// cek apakah yang diupload adalah file pdf
+	$ekstensiGambarValid = ['pdf'];
 	$ekstensiGambar = explode('.', $namaFile);
 	$ekstensiGambar = strtolower(end($ekstensiGambar));
+
 	if( !in_array($ekstensiGambar, $ekstensiGambarValid) ) {
 		echo "<script>
 				alert('yang anda upload bukan file pdf!');
@@ -106,6 +111,8 @@ function uploadpdf() {
 
 	return $namaFileBaru;
 }
+
+
 
 
 
