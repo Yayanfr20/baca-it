@@ -64,7 +64,8 @@ if (isset($_POST["login"])) {
                         title: 'Ooops!',
                         text: 'pastikan password dan username Anda terisi dengan benar',
                         icon: 'warning',
-                        timer: '3200'
+                        showConfirmButton: false,
+                        timer: '2000'
                     });
                   },10);
                   </script>

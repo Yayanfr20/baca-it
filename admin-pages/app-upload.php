@@ -19,6 +19,7 @@ if (!isset($_SESSION["admin"])) {
                 title: 'Success!',
                 text: 'Ebook berhasil di upload',
                 icon: 'success',
+                showConfirmButton: false,
                 timer: '3500'
             });
           },10);
@@ -365,7 +366,13 @@ if (!isset($_SESSION["admin"])) {
                     <div class="col-sm">
                       <form action="" method="post" enctype="multipart/form-data">
                       <div class="form-group">
-                        <input type="text" class="form-control input-default" name="admin_file_upload" value="<?= $data['username']; ?>">
+                        <input type="hidden" class="form-control input-default" name="admin_file_upload" value="<?= $data['username']; ?>">
+                      </div>
+                      <div class="form-group">
+                        <input type="hidden" class="form-control input-default" name="waktu" value="<?php
+                            date_default_timezone_set('Asia/Jakarta'); 
+                               echo  date('H:i A'); 
+                                 ?>">
                       </div>
                       <div class="form-group row">
                           <label

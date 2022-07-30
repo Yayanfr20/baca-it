@@ -54,6 +54,7 @@ function uploadpdf() {
 			title: 'Oops!',
 			text: 'Pilih file pdf terlebih dahulu',
 			icon: 'warning',
+			showConfirmButton : false,
 			timer: '3500'
 		});
 	  },10);
@@ -73,6 +74,7 @@ function uploadpdf() {
 			title: 'Oops!',
 			text: 'Yang Anda upload bukan file pdf',
 			icon: 'warning',
+			showConfirmButton : false,
 			timer: '3500'
 		});
 	  },10);
@@ -110,6 +112,7 @@ function uploadcover() {
 			title: 'Oops!',
 			text: 'Pastika semua form terisi dengan benar',
 			icon: 'warning',
+			showConfirmButton: false,
 			timer: '3500'
 		});
 	  },10);
@@ -129,6 +132,7 @@ function uploadcover() {
 			title: 'Oops!',
 			text: 'Yang Anda upload bukan file gambar',
 			icon: 'warning',
+			showConfirmButton : false,
 			timer: '3500'
 		});
 	  },10);
@@ -158,6 +162,7 @@ function tambah($data) {
     $img = uploadcover();
     $tglupload = htmlspecialchars($data["tglupload"]);
     $admin_file_upload = htmlspecialchars($data["admin_file_upload"]);
+    $waktu = htmlspecialchars($data["waktu"]);
 
     if(!$pdf) {
         return false;
@@ -167,6 +172,7 @@ function tambah($data) {
 		title: 'Oops!',
 		text: 'File pdf gagal di upload!',
 		icon: 'error',
+		showConfirmButton : false,
 		timer: '3500'
 	});
   },10);
@@ -183,13 +189,14 @@ function tambah($data) {
 		title: 'Oops!',
 		text: 'File gambar gagal di upload!',
 		icon: 'error',
+		showConfirmButton : false,
 		timer: '3500'
 	});
   },10);
   </script>";
 
 
-$query = "INSERT INTO ebook VALUES ('', '$judul', '$deskripsi', '$pdf', '$img', '$tglupload', '$admin_file_upload')";
+$query = "INSERT INTO ebook VALUES ('', '$judul', '$deskripsi', '$pdf', '$img', '$tglupload', '$admin_file_upload', '$waktu')";
 
 mysqli_query($conn, $query);
 

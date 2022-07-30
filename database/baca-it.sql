@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 30, 2022 at 02:58 PM
+-- Generation Time: Jul 30, 2022 at 04:14 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -77,15 +77,18 @@ CREATE TABLE `ebook` (
   `pdf` varchar(999) NOT NULL,
   `cover` varchar(200) NOT NULL,
   `tglupload` varchar(50) NOT NULL,
-  `admin_file_upload` varchar(50) NOT NULL
+  `admin_file_upload` varchar(50) NOT NULL,
+  `waktu` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `ebook`
 --
 
-INSERT INTO `ebook` (`id`, `judul`, `deskripsi`, `pdf`, `cover`, `tglupload`, `admin_file_upload`) VALUES
-(37, 'Pramuka', 'tentang pembelajaran semaphore\r\n', '62e50f327676d.pdf', '62e50f3277af5.png', 'Saturday, 30-07-2022', '');
+INSERT INTO `ebook` (`id`, `judul`, `deskripsi`, `pdf`, `cover`, `tglupload`, `admin_file_upload`, `waktu`) VALUES
+(43, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque earum incidunt reprehenderit dolor ab ad vel, iste sunt eius, possimus quidem. Quis officiis voluptatum architecto fugit ut magnam omnis unde.', '62e53a69dc736.pdf', '62e53a69ddabe.jpg', 'Saturday, 30-07-2022', 'ferlan ferlani', '21:03 PM'),
+(44, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque earum incidunt reprehenderit dolor a', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque earum incidunt reprehenderit dolor ab ad vel, iste sunt eius, possimus quidem. Quis officiis voluptatum architecto fugit ut magnam omnis unde.', '62e53a8a17b30.pdf', '62e53a8a18eb8.jpg', 'Saturday, 30-07-2022', 'ferlan ferlani', '21:04 PM'),
+(45, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque earum incidunt reprehenderit', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque earum incidunt reprehenderit dolor ab ad vel, iste sunt eius, possimus quidem. Quis officiis voluptatum architecto fugit ut magnam omnis unde.', '62e53abac8423.pdf', '62e53abac97ab.jpg', 'Saturday, 30-07-2022', 'admin', '21:05 PM');
 
 -- --------------------------------------------------------
 
@@ -175,7 +178,7 @@ ALTER TABLE `chat_users`
 -- AUTO_INCREMENT for table `ebook`
 --
 ALTER TABLE `ebook`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `multi_user`

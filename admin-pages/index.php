@@ -17,7 +17,7 @@ if (!isset($_SESSION["admin"])) {
   if ($_SESSION['admin']) {
     $login = $_SESSION['admin'];
 
-    $result = mysqli_query($conn, "SELECT * FROM multi_user WHERE id = '$login'");
+    $result = mysqli_query($conn, "SELECT * FROM ebook");
     $data = mysqli_fetch_assoc($result);
   } 
   // akhir cetak session Login
@@ -64,10 +64,11 @@ if (!isset($_SESSION["admin"])) {
   echo "<script>
           setTimeout(function () {
             Swal.fire ({
-              title: 'Ooops!',
-              text: 'pastikan password dan username Anda terisi dengan benar',
-              icon: 'warning',
-              timer: '3200'
+              title: 'Success!',
+              text: 'Berhasil Login',
+              icon: 'success',
+              showConfirmButton: false,
+              timer: '2000'
           });
         },10);
         </script>
@@ -486,7 +487,7 @@ if (!isset($_SESSION["admin"])) {
                         class="mr-3 rounded-circle"
                       />
                       <div class="media-body">
-                        <h5><?= $data['admin_file_upload']; ?></h5>
+                        <h5><?= $info['admin_file_upload']; ?></h5>
                         <p class="mb-0">
                           <?= '<span class="text-danger">Judul : </span>'. $info['judul']. 
                               '<br>'.
@@ -496,7 +497,7 @@ if (!isset($_SESSION["admin"])) {
                       </div>
                       <span class="text-muted"><?= $info['tglupload']; ?></span>
                     </div>
-                    <br>
+                    <span class="pt-5"><?= $info['waktu'] ?></span>
                     <?php endforeach; ?>
                   </div>
                 </div>
