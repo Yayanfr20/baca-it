@@ -57,6 +57,8 @@ function tambah($data) {
   },10);
   </script>";
 
+  die;
+
     if (!$img) {
         return false;
     } echo "<script>
@@ -69,6 +71,8 @@ function tambah($data) {
 	});
   },10);
   </script>";
+
+  die;
 
 $query = "INSERT INTO ebook VALUES ('', '$judul', '$deskripsi', '$pdf', '$img', '$tglupload')";
 
@@ -125,16 +129,6 @@ function uploadpdf() {
 		return false;
 	}
 
-	// cek jika ukurannya terlalu besar
-	// if( $ukuranFile > 100000000 ) {
-	// 	echo "<script>
-	// 			alert('ukuran file terlalu besar!');
-	// 		  </script>";
-	// 	return false;
-	// }
-
-	// lolos pengecekan, gambar siap diupload
-	// generate nama gambar baru
 	$namaFileBaru = uniqid();
 	$namaFileBaru .= '.';
 	$namaFileBaru .= $ekstensiGambar;
@@ -191,16 +185,6 @@ function uploadcover() {
 		return false;
 	}
 
-	// cek jika ukurannya terlalu besar
-	// if( $ukuranFile > 10000000 ) {
-	// 	echo "<script>
-	// 			alert('ukuran gambar terlalu besar!');
-	// 		  </script>";
-	// 	return false;
-	// }
-
-	// lolos pengecekan, gambar siap diupload
-	// generate nama gambar baru
 	$namaFileBaru = uniqid();
 	$namaFileBaru .= '.';
 	$namaFileBaru .= $ekstensiGambar;
@@ -209,47 +193,6 @@ function uploadcover() {
 
 	return $namaFileBaru;
 }
-
-    ////////////////// function registration /////////////////
-    // function regisadmin($data) {
-    //     global $conn;
-
-    //     $username = stripslashes($data['username']);
-    //     $password = mysqli_real_escape_string(($conn, $data['password']));
-    //     $password2 = mysqli_real_escape_string($conn, $data['password2'])
-    //     $level = mysqli_real_escape_string($conn, $data['level']);
-
-    //     $admin = myqli_query($conn, "SELECT username from multi_user WHERE username = '$username' ");
-
-    //     if(mysqli_fetch_assoc($admin)) {
-    //         echo "<script>
-    //                 alert('nama yang anda pilih sekaran sudah digunakan, pilih username lain!');
-    //                 document.location.href = 'halaman yang dituju'
-    //               </script>"
-
-    //               return false;
-    //     }
-
-    //     // cek kesamaan password
-    //     if($password !== $password2) {
-    //         echo "<script>
-    //         alert('password yang anda masukkan tidak sesuai!');
-    //         document.location.href = 'alamat yang dituju';
-    //               </script>"
-
-    //               return false;
-    //     }
-
-    //     // enksripsi password
-    //     $password = password_hash($password, PASSWORD_DEFAULT);
-
-    //     // masukkan data user/admin ke database
-    //     mysqli_query($conn, "INSERT INTO multi_user VALUES(NULL, '$username', '$password', '$level')");
-    //     mysqli_query($conn, "INSERT INTO admin VALUES(NULL, '$username', '$password', '$level')");
-
-    //     return mysqli_affected_rows($conn);
-
-    // }
 
 
 function kirimpesan($data) {
