@@ -46,11 +46,29 @@ function tambah($data) {
     $tglupload = htmlspecialchars($data["tglupload"]);
     if(!$pdf) {
         return false;
-    }
+    } echo "<script>
+	setTimeout(function () {
+	  Swal.fire ({
+		title: 'Oops!',
+		text: 'File pdf gagal di upload!',
+		icon: 'error',
+		timer: '3500'
+	});
+  },10);
+  </script>";
 
     if (!$img) {
         return false;
-    }
+    } echo "<script>
+	setTimeout(function () {
+	  Swal.fire ({
+		title: 'Oops!',
+		text: 'File gambar gagal di upload!',
+		icon: 'error',
+		timer: '3500'
+	});
+  },10);
+  </script>";
 
 $query = "INSERT INTO ebook VALUES ('', '$judul', '$deskripsi', '$pdf', '$img', '$tglupload')";
 
@@ -146,7 +164,7 @@ function uploadcover() {
 		setTimeout(function () {
 		  Swal.fire ({
 			title: 'Oops!',
-			text: 'Pilih file gambar terlebih dahulu',
+			text: 'Pastika semua form terisi dengan benar',
 			icon: 'warning',
 			timer: '3500'
 		});
