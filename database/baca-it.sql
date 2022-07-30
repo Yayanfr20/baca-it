@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2022 at 02:18 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Jul 30, 2022 at 02:58 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -39,9 +39,8 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`id`, `username`, `password`) VALUES
 (1, 'admin', '$2y$10$meVnSZ5EwZAMMeQKCdZjeOzpQwPgSw4C0bvECCwNAMUNNd5EpqXB2'),
-(3, 'ferlan', '$2y$10$exBLllbytzTzMalUAyJ9pucNbTVG05dQjnda3h5YQ9AfbuVFyr8wS'),
-(4, 'ferlan', '$2y$10$wa4YxVbScyLliYdETqWC9On/T1cSE.kyG43371D6Ys7HtdmNhlt.e'),
-(7, 'yayan', '$2y$10$eRCo5uOR.ObmAKLoyWw26eBtDTcZLHdcEvsELZ7hCqOG9bZ5gVpuO');
+(7, 'yayan', '$2y$10$eRCo5uOR.ObmAKLoyWw26eBtDTcZLHdcEvsELZ7hCqOG9bZ5gVpuO'),
+(9, 'ferlan ferlani', '$2y$10$eP.NLn4LUOYq80CBkf3zsuhvvON/WWYA9YBUmReFWj1sMPCxFRPoy');
 
 -- --------------------------------------------------------
 
@@ -53,15 +52,17 @@ CREATE TABLE `chat_users` (
   `id` int(50) NOT NULL,
   `nama` varchar(200) NOT NULL,
   `email` varchar(200) NOT NULL,
-  `pesan` varchar(999) NOT NULL
+  `pesan` varchar(999) NOT NULL,
+  `waktu` varchar(30) NOT NULL,
+  `tgl` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `chat_users`
 --
 
-INSERT INTO `chat_users` (`id`, `nama`, `email`, `pesan`) VALUES
-(2, 'Yayan', 'yayanfr3@gmail.com', 'halo admin');
+INSERT INTO `chat_users` (`id`, `nama`, `email`, `pesan`, `waktu`, `tgl`) VALUES
+(33, 'Ferlan Ferlani', 'ferlanferlani.id@gmail.com', 'satu dua tiga empat lima enam tujuh delapan sembilan sepuluh sebelas dua belas tiga belas empat belas lima belas enam belas tujuh belas delapan belas sembilan belas duapuluh', '06:16 AM', 'Thursday, 28-07-2022');
 
 -- --------------------------------------------------------
 
@@ -75,16 +76,16 @@ CREATE TABLE `ebook` (
   `deskripsi` varchar(999) NOT NULL,
   `pdf` varchar(999) NOT NULL,
   `cover` varchar(200) NOT NULL,
-  `tglupload` varchar(50) NOT NULL
+  `tglupload` varchar(50) NOT NULL,
+  `admin_file_upload` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `ebook`
 --
 
-INSERT INTO `ebook` (`id`, `judul`, `deskripsi`, `pdf`, `cover`, `tglupload`) VALUES
-(16, 'Mengenal javascript', 'Pembelajaran javascript pemula', '62d4a24c97358.pdf', '62d4a24c97a2e.png', 'Monday 22 07'),
-(17, 'coba', 'coba doang', '62d4a66a38e22.pdf', '62d4a66a391ea.png', 'Monday 22 07');
+INSERT INTO `ebook` (`id`, `judul`, `deskripsi`, `pdf`, `cover`, `tglupload`, `admin_file_upload`) VALUES
+(37, 'Pramuka', 'tentang pembelajaran semaphore\r\n', '62e50f327676d.pdf', '62e50f3277af5.png', 'Saturday, 30-07-2022', '');
 
 -- --------------------------------------------------------
 
@@ -105,7 +106,8 @@ CREATE TABLE `multi_user` (
 
 INSERT INTO `multi_user` (`id`, `username`, `password`, `level`) VALUES
 (3, 'admin', '$2y$10$meVnSZ5EwZAMMeQKCdZjeOzpQwPgSw4C0bvECCwNAMUNNd5EpqXB2', 'admin'),
-(9, 'yayan', '$2y$10$eRCo5uOR.ObmAKLoyWw26eBtDTcZLHdcEvsELZ7hCqOG9bZ5gVpuO', 'admin');
+(9, 'yayan', '$2y$10$eRCo5uOR.ObmAKLoyWw26eBtDTcZLHdcEvsELZ7hCqOG9bZ5gVpuO', 'admin'),
+(11, 'ferlan ferlani', '$2y$10$eP.NLn4LUOYq80CBkf3zsuhvvON/WWYA9YBUmReFWj1sMPCxFRPoy', 'admin');
 
 -- --------------------------------------------------------
 
@@ -161,25 +163,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `chat_users`
 --
 ALTER TABLE `chat_users`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `ebook`
 --
 ALTER TABLE `ebook`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `multi_user`
 --
 ALTER TABLE `multi_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `users`
