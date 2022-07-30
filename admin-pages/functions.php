@@ -69,15 +69,22 @@ return mysqli_affected_rows($conn);
 function uploadpdf() {
 
 	$namaFile = $_FILES['pdf']['name'];
-	$ukuranFile = $_FILES['pdf']['size'];
+	// $ukuranFile = $_FILES['pdf']['size'];
 	$error = $_FILES['pdf']['error'];
 	$tmpName = $_FILES['pdf']['tmp_name'];
 
 	// cek apakah tidak ada file pdf yang diupload
 	if( $error === 4 ) {
 		echo "<script>
-				alert('pilih file terlebih dahulu!');
-			  </script>";
+		setTimeout(function () {
+		  Swal.fire ({
+			title: 'Oops!',
+			text: 'Pilih file pdf terlebih dahulu',
+			icon: 'warning',
+			timer: '3500'
+		});
+	  },10);
+	  </script>";
 		return false;
 	}
 
@@ -88,18 +95,25 @@ function uploadpdf() {
 
 	if( !in_array($ekstensiGambar, $ekstensiGambarValid) ) {
 		echo "<script>
-				alert('yang anda upload bukan file pdf!');
-			  </script>";
+		setTimeout(function () {
+		  Swal.fire ({
+			title: 'Oops!',
+			text: 'Yang Anda upload bukan file pdf',
+			icon: 'warning',
+			timer: '3500'
+		});
+	  },10);
+	  </script>";
 		return false;
 	}
 
 	// cek jika ukurannya terlalu besar
-	if( $ukuranFile > 100000000 ) {
-		echo "<script>
-				alert('ukuran file terlalu besar!');
-			  </script>";
-		return false;
-	}
+	// if( $ukuranFile > 100000000 ) {
+	// 	echo "<script>
+	// 			alert('ukuran file terlalu besar!');
+	// 		  </script>";
+	// 	return false;
+	// }
 
 	// lolos pengecekan, gambar siap diupload
 	// generate nama gambar baru
@@ -122,15 +136,22 @@ function uploadpdf() {
 function uploadcover() {
 
 	$namaFile = $_FILES['cover']['name'];
-	$ukuranFile = $_FILES['cover']['size'];
+	// $ukuranFile = $_FILES['cover']['size'];
 	$error = $_FILES['cover']['error'];
 	$tmpName = $_FILES['cover']['tmp_name'];
 
 	// cek apakah tidak ada gambar yang diupload
 	if( $error === 4 ) {
 		echo "<script>
-				alert('pilih gambar terlebih dahulu!');
-			  </script>";
+		setTimeout(function () {
+		  Swal.fire ({
+			title: 'Oops!',
+			text: 'Pilih file gambar terlebih dahulu',
+			icon: 'warning',
+			timer: '3500'
+		});
+	  },10);
+	  </script>";
 		return false;
 	}
 
@@ -140,18 +161,25 @@ function uploadcover() {
 	$ekstensiGambar = strtolower(end($ekstensiGambar));
 	if( !in_array($ekstensiGambar, $ekstensiGambarValid) ) {
 		echo "<script>
-				alert('yang anda upload bukan gambar!');
-			  </script>";
+		setTimeout(function () {
+		  Swal.fire ({
+			title: 'Oops!',
+			text: 'Yang Anda upload bukan gambar',
+			icon: 'warning',
+			timer: '3500'
+		});
+	  },10);
+	  </script>";
 		return false;
 	}
 
 	// cek jika ukurannya terlalu besar
-	if( $ukuranFile > 10000000 ) {
-		echo "<script>
-				alert('ukuran gambar terlalu besar!');
-			  </script>";
-		return false;
-	}
+	// if( $ukuranFile > 10000000 ) {
+	// 	echo "<script>
+	// 			alert('ukuran gambar terlalu besar!');
+	// 		  </script>";
+	// 	return false;
+	// }
 
 	// lolos pengecekan, gambar siap diupload
 	// generate nama gambar baru
@@ -225,3 +253,10 @@ function kirimpesan($data) {
 }
 
 ?>
+
+
+<!-- assets sweetlaert -->
+
+	<!-- sweet alert -->
+    <script src="plugins/sweetalert/js/sweetalert2.all.min.js"></script>
+    <script src="plugins/sweetalert/js/jquery-3.6.0.min.js"></script>

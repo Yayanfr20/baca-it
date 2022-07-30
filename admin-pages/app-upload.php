@@ -365,7 +365,7 @@ if (!isset($_SESSION["admin"])) {
                                 type="file"
                                 class="custom-file-input"
                                 name="pdf"
-                                required
+                                
                               />
                               <label class="custom-file-label"
                                 >Upload Pdf</label
@@ -385,7 +385,7 @@ if (!isset($_SESSION["admin"])) {
                                 type="file"
                                 class="custom-file-input"
                                 name="cover"
-                                required
+                                
                               />
                               <label class="custom-file-label"
                                 >Upload Cover</label
@@ -405,7 +405,7 @@ if (!isset($_SESSION["admin"])) {
                               class="form-control"
                               placeholder="Masukkan Judul E-book.."
                               name="judul"
-                              required
+                              
                             />
                           </div>
                         </div>
