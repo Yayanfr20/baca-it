@@ -36,54 +36,6 @@ function delmail($id) {
 
 }
 
-// upload ebook
-function tambah($data) {
-    global $conn;
-    $judul = htmlspecialchars($data["judul"]);
-    $deskripsi = htmlspecialchars($data["deskripsi"]);
-    $pdf = uploadpdf();
-    $img = uploadcover();
-    $tglupload = htmlspecialchars($data["tglupload"]);
-    if(!$pdf) {
-        return false;
-    } echo "<script>
-	setTimeout(function () {
-	  Swal.fire ({
-		title: 'Oops!',
-		text: 'File pdf gagal di upload!',
-		icon: 'error',
-		timer: '3500'
-	});
-  },10);
-  </script>";
-
-  die;
-
-    if (!$img) {
-        return false;
-    } echo "<script>
-	setTimeout(function () {
-	  Swal.fire ({
-		title: 'Oops!',
-		text: 'File gambar gagal di upload!',
-		icon: 'error',
-		timer: '3500'
-	});
-  },10);
-  </script>";
-
-  die;
-
-$query = "INSERT INTO ebook VALUES ('', '$judul', '$deskripsi', '$pdf', '$img', '$tglupload')";
-
-mysqli_query($conn, $query);
-
-return mysqli_affected_rows($conn);
-
-}
-
-
-
 
 
 
@@ -91,7 +43,6 @@ return mysqli_affected_rows($conn);
 function uploadpdf() {
 
 	$namaFile = $_FILES['pdf']['name'];
-	// $ukuranFile = $_FILES['pdf']['size'];
 	$error = $_FILES['pdf']['error'];
 	$tmpName = $_FILES['pdf']['tmp_name'];
 
@@ -148,7 +99,6 @@ function uploadpdf() {
 function uploadcover() {
 
 	$namaFile = $_FILES['cover']['name'];
-	// $ukuranFile = $_FILES['cover']['size'];
 	$error = $_FILES['cover']['error'];
 	$tmpName = $_FILES['cover']['tmp_name'];
 
@@ -164,6 +114,7 @@ function uploadcover() {
 		});
 	  },10);
 	  </script>";
+
 		return false;
 	}
 
@@ -176,14 +127,16 @@ function uploadcover() {
 		setTimeout(function () {
 		  Swal.fire ({
 			title: 'Oops!',
-			text: 'Yang Anda upload bukan gambar',
+			text: 'Yang Anda upload bukan file gambar',
 			icon: 'warning',
 			timer: '3500'
 		});
 	  },10);
 	  </script>";
+
 		return false;
 	}
+
 
 	$namaFileBaru = uniqid();
 	$namaFileBaru .= '.';
@@ -194,6 +147,66 @@ function uploadcover() {
 	return $namaFileBaru;
 }
 
+
+
+// upload ebook
+function tambah($data) {
+    global $conn;
+    $judul = htmlspecialchars($data["judul"]);
+    $deskripsi = htmlspecialchars($data["deskripsi"]);
+    $pdf = uploadpdf();
+    $img = uploadcover();
+    $tglupload = htmlspecialchars($data["tglupload"]);
+    $admin_file_upload = htmlspecialchars($data["admin_file_upload"]);
+
+    if(!$pdf) {
+        return false;
+    } echo "<script>
+	setTimeout(function () {
+	  Swal.fire ({
+		title: 'Oops!',
+		text: 'File pdf gagal di upload!',
+		icon: 'error',
+		timer: '3500'
+	});
+  },10);
+  </script>";
+
+
+    if (!$img) {
+
+        return false;
+
+    } echo "<script>
+	setTimeout(function () {
+	  Swal.fire ({
+		title: 'Oops!',
+		text: 'File gambar gagal di upload!',
+		icon: 'error',
+		timer: '3500'
+	});
+  },10);
+  </script>";
+
+
+$query = "INSERT INTO ebook VALUES ('', '$judul', '$deskripsi', '$pdf', '$img', '$tglupload', '$admin_file_upload')";
+
+mysqli_query($conn, $query);
+
+return mysqli_affected_rows($conn);
+
+}
+
+
+
+
+
+
+
+
+
+
+// function kirim pesan
 
 function kirimpesan($data) {
         global $conn;

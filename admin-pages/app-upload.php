@@ -38,6 +38,17 @@ if (!isset($_SESSION["admin"])) {
           }
         }
 
+
+
+        // data login user
+  // <!-- cetak session login -->
+  if ($_SESSION['admin']) {
+    $login = $_SESSION['admin'];
+
+    $result = mysqli_query($conn, "SELECT * FROM multi_user WHERE id = '$login'");
+    $data = mysqli_fetch_assoc($result);
+  }
+
  ?>
 
 
@@ -185,7 +196,7 @@ if (!isset($_SESSION["admin"])) {
         ***********************************-->
       <div class="nav-header">
         <div class="brand-logo">
-          <a href="indee">
+          <a href=".">
             <b class="logo-abbr"
               ><img src="logo/it-logo-6882B7887A-seeklogo.com.png" alt="" />
             </b>
@@ -353,6 +364,9 @@ if (!isset($_SESSION["admin"])) {
                   <div class="row justify-content-center">
                     <div class="col-sm">
                       <form action="" method="post" enctype="multipart/form-data">
+                      <div class="form-group">
+                        <input type="text" class="form-control input-default" name="admin_file_upload" value="<?= $data['username']; ?>">
+                      </div>
                       <div class="form-group row">
                           <label
                             class="col-lg-4 col-form-label"
@@ -394,19 +408,11 @@ if (!isset($_SESSION["admin"])) {
                           </div>
                         </div>
                         <div class="form-group row">
-                          <label
-                            class="col-lg-4 col-form-label"
-                            for="val-username"
-                            >Judul
+                          <label for="deskripsi" class="col-lg-4 col-form-label">
+                            Judul
                           </label>
                           <div class="input-group mb-3 col-lg-6">
-                            <input
-                              type="text"
-                              class="form-control"
-                              placeholder="Masukkan Judul E-book.."
-                              name="judul"
-                              
-                            />
+                            <textarea class="form-control" id="deskripsi" rows="2" placeholder="Judul ebook" name="judul"></textarea>
                           </div>
                         </div>
                         <div class="form-group row">
@@ -414,7 +420,7 @@ if (!isset($_SESSION["admin"])) {
                             Deskripsi
                           </label>
                           <div class="input-group mb-3 col-lg-6">
-                            <textarea class="form-control" id="deskripsi" rows="3" placeholder="Deskripsi E-book..." name="deskripsi"></textarea>
+                            <textarea class="form-control" id="deskripsi" rows="5" placeholder="Deskripsi E-book..." name="deskripsi"></textarea>
                           </div>
                         </div>
                         <input type="hidden" value="<?= date('l, d-m-Y') ?>" name="tglupload">

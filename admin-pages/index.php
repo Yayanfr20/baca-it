@@ -26,17 +26,6 @@ if (!isset($_SESSION["admin"])) {
   $infoupload = query("SELECT * FROM ebook ORDER BY id DESC");
 
 
-  // data login user
-  // <!-- cetak session login -->
-  if ($_SESSION['admin']) {
-    $login = $_SESSION['admin'];
-
-    $result = mysqli_query($conn, "SELECT * FROM multi_user WHERE id = '$login'");
-    $data = mysqli_fetch_assoc($result);
-  } 
-  // akhir cetak session Login
-
-
   // ambil data dri dtabase chat_user
   $chat = mysqli_query($conn, "SELECT * FROM chat_users");
 
@@ -497,7 +486,7 @@ if (!isset($_SESSION["admin"])) {
                         class="mr-3 rounded-circle"
                       />
                       <div class="media-body">
-                        <h5><?= $data['username']; ?></h5>
+                        <h5><?= $data['admin_file_upload']; ?></h5>
                         <p class="mb-0">
                           <?= '<span class="text-danger">Judul : </span>'. $info['judul']. 
                               '<br>'.
